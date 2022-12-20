@@ -19,10 +19,8 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [ProjectController::class, 'home'])->name('home');
 
-Route::get('/login', [ProjectController::class, 'login'])->name('login');
 Route::get('/register', [ProjectController::class, 'register']);
-Route::post('/register', [ProjectController::class, 'registerInDatabase']);
 Route::get('/about', [ProjectController::class, 'about'])->name('about');
 
 Auth::routes();
-Route::get('/logged/home', [ProjectController::class, 'adminHome'])->name('admin.home')->middleware('auth');;
+Route::get('/account', [HomeController::class, 'account'])->name('account')->middleware('auth');

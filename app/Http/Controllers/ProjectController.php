@@ -17,20 +17,12 @@ class ProjectController extends Controller
         return view('home');
     }
 
-    public function login(){
-        return view('regist.login');
-    }
-
     public function register(){
         return view('regist.register');
     }
 
     public function about(){
         return view('about');
-    }
-
-    public function adminHome(){
-        return view('adminHome');
     }
     
 }
