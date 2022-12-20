@@ -2,23 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Auth\Events\Registered;
+use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Routing\Controller as BaseController;
 
 class ProjectController extends Controller
 {
     public function home(){
-        return view('welcome');
+        return view('home');
     }
 
     public function login(){
         return view('regist.login');
     }
 
+    public function register(){
+        return view('regist.register');
+    }
+
     public function about(){
         return view('about');
     }
+    
 }

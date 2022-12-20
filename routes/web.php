@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RegisterControllerAdd;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +19,12 @@ use App\Http\Controllers\ProjectController;
 
 Route::get('/', [ProjectController::class, 'home'])->name('home');
 
-Route::get('/login', [ProjectController::class, 'login']);
+Route::get('/login', [ProjectController::class, 'login'])->name('login');
+Route::get('/register', [ProjectController::class, 'register']);
+Route::post('/register', [ProjectController::class, 'registerInDatabase']);
 
 Route::get('/about', [ProjectController::class, 'about'])->name('about');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
