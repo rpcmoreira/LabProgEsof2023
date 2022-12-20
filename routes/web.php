@@ -17,10 +17,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [ProjectController::class, 'home'])->name('home');
+Route::get('/', [ProjectController::class, 'home']);
 
-Route::get('/register', [ProjectController::class, 'register']);
 Route::get('/about', [ProjectController::class, 'about'])->name('about');
 
-Auth::routes();
-Route::get('/account', [HomeController::class, 'account'])->name('account')->middleware('auth');
+Auth::routes(['verify'=>true]);
+Route::get('/home', [HomeController::class, 'account'])->name('home')->middleware('auth');

@@ -17,12 +17,7 @@ class ProjectController extends Controller
         return view('home');
     }
 
-    public function register(){
-        return view('regist.register');
-    }
-
     public function about(){
         return view('about');
     }
-    
 }
