@@ -22,9 +22,7 @@ Route::get('/', [ProjectController::class, 'home'])->name('home');
 Route::get('/login', [ProjectController::class, 'login'])->name('login');
 Route::get('/register', [ProjectController::class, 'register']);
 Route::post('/register', [ProjectController::class, 'registerInDatabase']);
-
 Route::get('/about', [ProjectController::class, 'about'])->name('about');
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/logged/home', [ProjectController::class, 'adminHome'])->name('admin.home')->middleware('auth');;

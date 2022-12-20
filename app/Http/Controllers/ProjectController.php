@@ -28,5 +28,9 @@ class ProjectController extends Controller
     public function about(){
         return view('about');
     }
+
+    public function adminHome(){
+        return view('adminHome');
+    }
     
 }
