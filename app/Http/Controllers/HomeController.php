@@ -58,7 +58,7 @@ class HomeController extends Controller
             return $response;
         }
 
-        return redirect($this->redirectPath())->with('status', 'Your item was added Succefully!');
+        return redirect($this->redirectPath())->with('success', 'Your item was added Succefully!');
     }   
 
     protected function validator(array $data)
