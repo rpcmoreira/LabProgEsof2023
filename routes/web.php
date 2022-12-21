@@ -26,3 +26,6 @@ Route::get('/products', [ProjectController::class, 'products'])->name('products'
 
 Auth::routes(['verify'=>true]);
 Route::get('/home', [HomeController::class, 'account'])->name('home')->middleware('auth');
+Route::get('/create', [HomeController::class, 'create'])->name('create');
+Route::post('/createNew', [HomeController::class, 'createNew'])->name('createNew');
+
