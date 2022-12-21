@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\Item;
+use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 class ProjectController extends Controller
 {
@@ -19,5 +22,14 @@ class ProjectController extends Controller
 
     public function about(){
         return view('about');
+    }
+
+    public function products(Request $request)
+    {
+        /*if($request->has('localization')){
+            $user = DB::table('items')->join('users', 'items.user_id', '=', 'users.user_id')->where('user.localization', $request->localization);
+        }
+        else*/ $user = Item::all();
+        return view('prodList', ['user' => $user]);
     }
 }
