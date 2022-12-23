@@ -51,7 +51,7 @@ class LoginController extends Controller
         ]);
 
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))){
-                return redirect()->route('account');
+                return redirect()->route('home');
         }else{
             return redirect()->route('login')
                 ->with('login','Email/Password are wrong, please try again');

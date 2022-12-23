@@ -36,7 +36,9 @@ class HomeController extends Controller
 
     public function account()
     {
-        return view('adminHome');
+        $u = Auth::user();
+        $data = Item::where('id', $u->id)->get();
+        return view('adminHome', ['data' => $data]);
     }
 
     public function create(){
