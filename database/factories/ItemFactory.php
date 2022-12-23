@@ -25,7 +25,7 @@ class ItemFactory extends Factory
         $divisor = pow(10, $decimals);
         $price = mt_rand($min, $max * $divisor) / $divisor;
 
-        $vendor = random_int(0, 200);
+        $vendor = random_int(1, 200);
         $cat = Arr::random(array(
             'Art', 'Collectibles', 'Electronics', 'Fashion',
             'Home and Garden', 'Music', 'Office Supplies', 'Sports', 'Others'

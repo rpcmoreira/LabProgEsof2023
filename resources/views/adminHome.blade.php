@@ -8,7 +8,6 @@
             <div class="alert alert-success">
                 <p>{{ $message }}</p>
             </div>
-            <br>
             @endif
         </div>
     </div>
@@ -20,8 +19,8 @@
             <div class="card">
                 <div class="card-header">Dashboard</div>
                 <div class="card-body">
-                    Welcome {{ Auth::user()->name }}!
-                    <br>
+                    <h5>Welcome {{ Auth::user()->name }}!</h5>
+
                     @if(count($data) == 0)
                     You do not have any item listed for now!
                     @else
