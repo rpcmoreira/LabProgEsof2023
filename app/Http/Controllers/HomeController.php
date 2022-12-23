@@ -65,7 +65,7 @@ class HomeController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required','max:30'],
-            //'category' => ['required','max:50'],
+            'category' => ['required','regex:/^(Art|Collectibles|Electronics|Fashion|Home and Garden|Music|Office Supplies|Sports|Other)$/'],
             'price' => ['required','min:0.00'],
         ]);
     }

@@ -13,17 +13,27 @@ Produtos
         <h4>Filters</h4>
 
         <form method="GET" id="form" action="{{ route('products') }}">
-
-            @php $dist=array('Aveiro','Beja','Braga','Bragança','Castelo Branco','Coimbra','Évora','Faro','Guarda','Leiria','Lisboa','Portalegre','Porto','Santarém','Setubal','Viana do Castelo','Vila Real','Viseu'); @endphp
-            <select name="localization" id="localization" form="form">
-                <option value="" selected disabled hidden>Location</option>
-                @foreach($dist as $d)
-                <option value="{{ $d }}">{{ $d }}</option>
-                @endforeach
-            </select>
+            <div class="text-justified">
+                @php $dist=array('Aveiro','Beja','Braga','Bragança','Castelo Branco','Coimbra','Évora','Faro','Guarda','Leiria','Lisboa','Portalegre','Porto','Santarém','Setubal','Viana do Castelo','Vila Real','Viseu'); @endphp
+                <select name="localization" id="localization" form="form">
+                    <option value="" selected disabled hidden>Location</option>
+                    @foreach($dist as $d)
+                    <option value="{{ $d }}">{{ $d }}</option>
+                    @endforeach
+                </select>
+            </div>
             <br>
+            <div class="text-justified">
+                @php $cat=array('Art','Collectibles','Electronics','Fashion','Home and Garden','Music','Office Supplies','Sports','Others'); @endphp
+                <select name="category" id="category" form="form">
+                    <option value="" selected disabled hidden>Category</option>
+                    @foreach($cat as $c)
+                    <option value="{{ $c }}">{{ $c }}</option>
+                    @endforeach
+                </select>
+            </div>
             <br>
-            <div class="text-left">
+            <div class="text-justified">
                 <button type="submit" class="btn btn-primary">
                     {{ __('Search') }}
                 </button>
@@ -62,6 +72,8 @@ Produtos
         @empty
         <h3 class="text-center">No Products have been found!</h3>
         @endforelse
+
+        {!! $user->links('pagination::bootstrap-4')!!}
     </div>
 </div>
 @endsection

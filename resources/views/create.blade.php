@@ -27,19 +27,21 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="row mb-3 ">
                             <label for="category" class="col-md-4 col-form-label text-md-end">{{ __('Category') }}</label>
 
                             <div class="col-md-6">
                                 <select id="category" name="category" class="form-select form-control @error('category') is-invalid @enderror" autofocus>
-                                    <option value="Administrative">Administrative</option>
-                                    <option value="Computer Science">Computer Science</option>
-                                    <option value="Culinary">Culinary</option>
-                                    <option value="Design">Design</option>
-                                    <option value="Education">Education</option>
-                                    <option value="Public Services">Public Services</option>
-                                    <option value="Services to the Public">Services to the Public</option>
-                                    <option value="Other">Other</option>
+                                    <option value="" selected disabled hidden>---</option>
+                                    <option value="Art">Art</option>
+                                    <option value="Collectibles">Collectibles</option>
+                                    <option value="Electronics">Electronics</option>
+                                    <option value="Fashion">Fashion</option>
+                                    <option value="Home and Garden">Home and Garden</option>
+                                    <option value="Music">Music</option>
+                                    <option value="Office Supplies">Office Supplies</option>
+                                    <option value="Sports">Sports</option>
+                                    <option value="Others">Others</option>
                                 </select>
 
                                 @error('category')
