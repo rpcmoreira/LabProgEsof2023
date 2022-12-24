@@ -20,6 +20,10 @@ class ProjectController extends Controller
         return view('home');
     }
 
+    public function support(){
+        return view('support');
+    }
+
     public function about(){
         return view('about');
     }

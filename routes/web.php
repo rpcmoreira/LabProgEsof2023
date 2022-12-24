@@ -21,7 +21,7 @@ Route::get('/', [ProjectController::class, 'home']);
 
 Route::get('/about', [ProjectController::class, 'about'])->name('about');
 Route::get('/products', [ProjectController::class, 'products'])->name('products');
-
+Route::get('/support', [ProjectController::class, 'support'])->name('support');
 
 
 Auth::routes(['verify'=>true]);

@@ -6,7 +6,7 @@
 
     <ul class="navbar-nav me-auto">
       <li class="nav-item"><a class="nav-link" href="{{ route('products') }}">{{ __('Products') }}</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Support</a></li>
+      <li class="nav-item"><a class="nav-link" href="{{ route('support') }}">Support</a></li>
     </ul>
 
     <ul class="navbar-nav ml-auto">
@@ -25,6 +25,7 @@
         </ul>
       </li>
       @endif
+      
       @else
       <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}</a>  
