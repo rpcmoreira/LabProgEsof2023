@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
 use Illuminate\Http\Request;
 
@@ -75,7 +75,17 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
-        //
+        $request->validate([
+            'name' =>'required|min:4|string|max:255',
+            'category'=>'required|category|string|max:255',
+            'price'=>'required|price|string|max:255'
+        ]);
+        $item =Auth::item();
+        $item->name = $request['name'];
+        $item->category = $request['category'];
+        $item->price = $request['price'];
+        $item->save();
+        //return back()->with('message','Item atualizado');
     }
 
     /**
@@ -86,6 +96,11 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
-        //
+        $item = Item::where('id', $item->id)->pluck('id');
+        Item::whereIn('category', $item->category)->delete();
+        Item::whereIn('name', $item->name)->delete();
+        Item::whereIn('price', $item->price)->delete();
+        Item::where('item_id', $item->item_id)->delete();
+        $item->delete();
     }
 }
