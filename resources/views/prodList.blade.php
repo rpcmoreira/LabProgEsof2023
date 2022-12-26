@@ -17,8 +17,13 @@ Produtos
                 @php $dist=array('Aveiro','Beja','Braga','Bragança','Castelo Branco','Coimbra','Évora','Faro','Guarda','Leiria','Lisboa','Portalegre','Porto','Santarém','Setubal','Viana do Castelo','Vila Real','Viseu'); @endphp
                 <select name="localization" id="localization" form="form">
                     <option value="" selected disabled hidden>Location</option>
-                    @foreach($dist as $d)
-                    <option value="{{ $d }}">{{ $d }}</option>
+
+                    @foreach($dist as $r)
+                    @if(isset($_GET['localization']) && $_GET['localization']==$r)
+                    <option value="{{$r}}" selected>{{$r}}</option>
+                    @else
+                    <option value="{{ $r }}">{{ $r }}</option>
+                    @endif
                     @endforeach
                 </select>
             </div>
@@ -28,7 +33,11 @@ Produtos
                 <select name="category" id="category" form="form">
                     <option value="" selected disabled hidden>Category</option>
                     @foreach($cat as $c)
+                    @if(isset($_GET['category']) && $_GET['category']==$c)
+                    <option value="{{$c}}" selected>{{$c}}</option>
+                    @else
                     <option value="{{ $c }}">{{ $c }}</option>
+                    @endif
                     @endforeach
                 </select>
             </div>
@@ -37,43 +46,46 @@ Produtos
                 <button type="submit" class="btn btn-primary">
                     {{ __('Search') }}
                 </button>
-                <button type="submit" class="btn btn-secondary">
-                    {{ __('Reset') }}
-                </button>
-            </div>
         </form>
+        <form method="GET" id="form" action="{{ route('products') }}">
+            @php unset($_GET['localization']); isset($_GET['category']); @endphp
+            <button type="submit" class="btn btn-primary">
+                {{ __('Reset') }}
+            </button>
     </div>
+    </form>
+</div>
 
 
-    <div class="col-sm-8">
-        <div class="table-responsive">
-            <table class="table">
-                <tr>
-                    @for($numcand=0,$numcell=0; $numcand < count($user) ; $numcand++,$numcell++) @if($numcell==4) </tr>
-                <tr>
-                    @php $numcell = 0; @endphp
-                    @endif
-                    <td>
-                        <table>
-                            <tr>
-                                <td class="text-center">
-                                    {{ $user[$numcand]->name }}<br>
-                                    {{ $user[$numcand]->price }}€<br>
-                                </td>
+<div class="col-sm-8">
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                @for($numcand=0,$numcell=0; $numcand < count($user) ; $numcand++,$numcell++) @if($numcell==4) </tr>
+            <tr>
+                @php $numcell = 0; @endphp
+                @endif
+                <td>
+                    <table>
+                        <tr>
+                            <td class="text-center">
+                                {{ $user[$numcand]->name }}<br>
+                                {{ $user[$numcand]->price }}€<br>
+                            </td>
 
-                    </td>
-                </tr>
-            </table>
-            @endfor
+                </td>
             </tr>
-            </table>
-        </div>
-        @forelse($user as $a)
-        @empty
-        <h3 class="text-center">No Products have been found!</h3>
-        @endforelse
-
-        {!! $user->links('pagination::bootstrap-4')!!}
+        </table>
+        @endfor
+        </tr>
+        </table>
     </div>
+    @forelse($user as $a)
+    @empty
+    <h3 class="text-center">No Products have been found!</h3>
+    @endforelse
+
+    {!! $user->links('pagination::bootstrap-4')!!}
+</div>
 </div>
 @endsection
