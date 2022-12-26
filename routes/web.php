@@ -22,7 +22,7 @@ Route::get('/', [ProjectController::class, 'home']);
 
 Route::get('/about', [ProjectController::class, 'about'])->name('about');
 Route::get('/products', [ProjectController::class, 'products'])->name('products');
-Route::get('/item', [ProjectController::class, 'item'])->name('item');
+Route::get('/products/item', [ProjectController::class, 'item'])->name('item');
 
 
 Auth::routes(['verify'=>true]);

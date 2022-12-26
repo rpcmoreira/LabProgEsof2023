@@ -37,4 +37,7 @@ class ProjectController extends Controller
         else $user = Item::paginate(28);
         return view('prodList', ['user' => $user]);
     }
+    public function item(){
+        return view('item');
+    }
 }

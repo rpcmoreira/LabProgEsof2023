@@ -85,7 +85,7 @@ class ItemController extends Controller
         $item->category = $request['category'];
         $item->price = $request['price'];
         $item->save();
-        //return back()->with('message','Item atualizado');
+        //return ITEM::set('message','Item atualizado');
     }
 
     /**
