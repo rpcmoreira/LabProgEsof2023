@@ -63,6 +63,10 @@ class HomeController extends Controller
         return redirect($this->redirectPath())->with('success', 'Your item was added Succefully!');
     }   
 
+    public function itemHome(){
+        return view('item');
+    }
+
     protected function validator(array $data)
     {
         return Validator::make($data, [

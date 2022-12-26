@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterControllerAdd;
+use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -21,7 +22,7 @@ Route::get('/', [ProjectController::class, 'home']);
 
 Route::get('/about', [ProjectController::class, 'about'])->name('about');
 Route::get('/products', [ProjectController::class, 'products'])->name('products');
-
+Route::get('/item', [ProjectController::class, 'item'])->name('item');
 
 
 Auth::routes(['verify'=>true]);
