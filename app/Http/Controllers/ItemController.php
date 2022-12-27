@@ -96,7 +96,7 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
-        $item = Item::where('id', $item->id)->pluck('id');
+        $item = Item::where('id', $item->id)->pluck('id'); // Seleciona o ID
         Item::whereIn('category', $item->category)->delete();
         Item::whereIn('name', $item->name)->delete();
         Item::whereIn('price', $item->price)->delete();
