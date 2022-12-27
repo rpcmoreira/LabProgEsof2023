@@ -31,11 +31,11 @@ class ProjectController extends Controller
     public function products(Request $request)
     {
         if($request->has('localization') && $request->has('category')){
-            $user = DB::table('items')->join('users', 'items.id', '=', 'users.id')->where('users.localization', $request->localization)->
+            $user = DB::table('users')->join('items', 'items.id', '=', 'users.id')->where('users.localization', $request->localization)->
             where('category', $request->category)->paginate(28);
         }
         else if($request->has('localization')){
-            $user = DB::table('items')->join('users', 'items.id', '=', 'users.id')->where('users.localization', $request->localization)->paginate(28);
+            $user = DB::table('users')->join('items', 'items.id', '=', 'users.id')->where('users.localization', $request->localization)->paginate(28);
         }
         else if($request->has('category')){
             $user = Item::where('category', $request->category)->paginate(28);
