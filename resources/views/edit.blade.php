@@ -10,7 +10,7 @@
                 @php $id = Auth::id(); @endphp
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('edit') }}">
+                    <form method="POST" action="{{ url('/edit') }}">
                         @csrf
 
                         <div class="row mb-3">
@@ -66,7 +66,9 @@
                         </div>
 
                         <input type="hidden" id="user_id" name="user_id" class="form-control @error('user_id') is-invalid @enderror" value="{{ $item->id }}">
-                        <input type="hidden" id="item_id" name="item_id" class="form-control @error('item_id') is-invalid @enderror" value="{{$item->item_id}}">
+                        <input type="hidden" id="item_id" name="item_id" class="form-control @error('item_id') is-invalid @enderror" value="{{ $item->item_id }}">
+
+                        
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

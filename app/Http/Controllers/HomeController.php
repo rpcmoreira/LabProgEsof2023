@@ -91,14 +91,13 @@ class HomeController extends Controller
         return view('edit',['item' => $item]);
     }
     public function edit(Request $request){
-       /* $u = Auth::user();
+        $u = Auth::user();
         $item=Item::where('item_id', $request->item_id)->first();
         $item->name = $request->name;
         $item->category = $request->category;
         $item->price = $request->price;
         $item->save();
         $data = Item::where('id', $u->id)->get();
-        return view('adminHome', ['data' => $data])->with('success', 'Update!');*/
-        dump($request);
+        return view('adminHome', ['data' => $data])->with('success', 'Update!');
     }
 }
