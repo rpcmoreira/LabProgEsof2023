@@ -17,8 +17,13 @@ Produtos
                 @php $dist=array('Aveiro','Beja','Braga','Bragança','Castelo Branco','Coimbra','Évora','Faro','Guarda','Leiria','Lisboa','Portalegre','Porto','Santarém','Setubal','Viana do Castelo','Vila Real','Viseu'); @endphp
                 <select name="localization" id="localization" form="form">
                     <option value="" selected disabled hidden>Location</option>
-                    @foreach($dist as $d)
-                    <option value="{{ $d }}">{{ $d }}</option>
+
+                    @foreach($dist as $r)
+                    @if(isset($_GET['localization']) && $_GET['localization']==$r)
+                    <option value="{{$r}}" selected>{{$r}}</option>
+                    @else
+                    <option value="{{ $r }}">{{ $r }}</option>
+                    @endif
                     @endforeach
                 </select>
             </div>
@@ -28,7 +33,11 @@ Produtos
                 <select name="category" id="category" form="form">
                     <option value="" selected disabled hidden>Category</option>
                     @foreach($cat as $c)
+                    @if(isset($_GET['category']) && $_GET['category']==$c)
+                    <option value="{{$c}}" selected>{{$c}}</option>
+                    @else
                     <option value="{{ $c }}">{{ $c }}</option>
+                    @endif
                     @endforeach
                 </select>
             </div>
@@ -37,12 +46,15 @@ Produtos
                 <button type="submit" class="btn btn-primary">
                     {{ __('Search') }}
                 </button>
-                <button type="submit" class="btn btn-secondary">
-                    {{ __('Reset') }}
-                </button>
-            </div>
         </form>
+        <form method="GET" id="form" action="{{ route('products') }}">
+            @php unset($_GET['localization']); isset($_GET['category']); @endphp
+            <button type="submit" class="btn btn-primary">
+                {{ __('Reset') }}
+            </button>
     </div>
+    </form>
+</div>
 
 
     <div class="col-sm-8">
@@ -64,20 +76,19 @@ Produtos
                     <button type="submit" class="btn btn-primary" name="item_id" value="{{$user[$numcand]->item_id}}">Show</button>
                     </form>
                                 </td>
-
-                    </td>
-                </tr>
-            </table>
-            @endfor
+                </td>
             </tr>
-            </table>
-        </div>
-        @forelse($user as $a)
-        @empty
-        <h3 class="text-center">No Products have been found!</h3>
-        @endforelse
-
-        {!! $user->links('pagination::bootstrap-4')!!}
+        </table>
+        @endfor
+        </tr>
+        </table>
     </div>
+    @forelse($user as $a)
+    @empty
+    <h3 class="text-center">No Products have been found!</h3>
+    @endforelse
+
+    {!! $user->links('pagination::bootstrap-4')!!}
+</div>
 </div>
 @endsection
