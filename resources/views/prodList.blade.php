@@ -57,22 +57,25 @@ Produtos
 </div>
 
 
-<div class="col-sm-8">
-    <div class="table-responsive">
-        <table class="table">
-            <tr>
-                @for($numcand=0,$numcell=0; $numcand < count($user) ; $numcand++,$numcell++) @if($numcell==4) </tr>
-            <tr>
-                @php $numcell = 0; @endphp
-                @endif
-                <td>
-                    <table>
-                        <tr>
-                            <td class="text-center">
-                                {{ $user[$numcand]->name }}<br>
-                                {{ $user[$numcand]->price }}€<br>
-                            </td>
-
+    <div class="col-sm-8">
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    @for($numcand=0,$numcell=0; $numcand < count($user) ; $numcand++,$numcell++) @if($numcell==4) </tr>
+                <tr>
+                    @php $numcell = 0; @endphp
+                    @endif
+                    <td>
+                        <table>
+                            <tr>
+                                <td class="text-center">
+                                    {{ $user[$numcand]->name }}<br>
+                                    {{ $user[$numcand]->price }}€<br>
+                                    <form method="POST" action="/show">
+                                        @csrf 
+                    <button type="submit" class="btn btn-primary" name="item_id" value="{{$user[$numcand]->item_id}}">Show</button>
+                    </form>
+                                </td>
                 </td>
             </tr>
         </table>

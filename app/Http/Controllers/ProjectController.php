@@ -44,4 +44,11 @@ class ProjectController extends Controller
         else $user = Item::paginate(28);
         return view('prodList', ['user' => $user]);
     }
+    
+    public function show(Request $request){ // Passamos formulario
+        $user = Item::where('item_id', $request->item_id)->first();
+        //dump($user);
+        return view('item', ['user' => $user]);
+    }
+    
 }

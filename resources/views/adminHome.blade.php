@@ -30,12 +30,22 @@
                             <th class='text-center'>Name</th>
                             <th class='text-center'>Category</th>
                             <th class='text-center'>Price</th>
+                            <th class='text-center'>Edit</th>
+                            <th class='text-center'>Delete</th>
                         </tr>
                         @foreach($data as $d)
                         <tr>
                             <td class='text-center'>{{ $d->name }}</td>
                             <td class='text-center'>{{ $d->category }}</td>
                             <td class='text-center'>{{ $d->price }}€</td>
+                            <td class='text-center'>
+                                <form method="GET" id="form" action="{{ url('/edit_item') }}">
+                                    
+                                    <button type="submit" class="btn btn-primary" name="item_id" value="{{$d->item_id}}">
+                                        {{ __('Edit') }}
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                         @endforeach
                     </table>
