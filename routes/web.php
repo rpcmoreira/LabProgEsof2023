@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\RegisterControllerAdd;
 use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Auth;
@@ -31,3 +32,6 @@ Route::get('/create', [HomeController::class, 'create'])->name('create');
 Route::post('/createNew', [HomeController::class, 'createNew'])->name('createNew');
 Route::post('/edit', [HomeController::class, 'edit'])->name('edit');
 Route::get('/edit_item', [HomeController::class, 'edit_item']);
+
+Route::post('/generate-token', [ChatController::class, 'getnerateToken']);
+Route::get('/get-users', [ChatController::class, 'getUsers']);

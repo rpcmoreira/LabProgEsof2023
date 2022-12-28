@@ -2,22 +2,25 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "watch": "vite build --watch"
     },
     "devDependencies": {
         "@popperjs/core": "^2.11.6",
-        "@vitejs/plugin-react": "^2.2.0",
+        "@vitejs/plugin-vue": "^3.0.1",
         "axios": "^1.1.2",
         "bootstrap": "^5.2.3",
+        "laravel-mix-purgecss": "^6.0.0",
         "laravel-vite-plugin": "^0.7.2",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
         "sass": "^1.56.1",
-        "vite": "^4.0.2"
+        "vite": "^4.0.2",
+        "vue": "^3.2.37"
     },
     "dependencies": {
-        "@faker-js/faker": "^7.6.0"
+        "@faker-js/faker": "^7.6.0",
+        "stream-chat": "^8.1.3",
+        "stream-chat-react": "^10.4.2"
     }
 }

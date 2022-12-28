@@ -34,70 +34,70 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-    public function account()
-    {
-        $u = Auth::user();
-        $data = Item::where('id', $u->id)->get();
-        return view('adminHome', ['data' => $data]);
-    }
-
-    public function create(){
-        $user = Auth::user();
-        return view('create');
-    }
-
-    public function createNew(Request $request){
-
-        $user = Auth::user();
-
-        $this->validator($request->all())->validate();
-
-        event(new Registered($user = $this->createItem($request->all())));
-
-        $this->guard()->login(Auth::user());
-
-        if ($response = $this->registered($request, $user)) {
-            return $response;
-        }
-
-        return redirect($this->redirectPath())->with('success', 'Your item was added Succefully!');
-    }   
-
-    public function itemHome(){
-        return view('item');
-    }
-
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required','max:30'],
-            'category' => ['required','regex:/^(Art|Collectibles|Electronics|Fashion|Home and Garden|Music|Office Supplies|Sports|Other)$/'],
-            'price' => ['required','min:0.00'],
-        ]);
-    }
-
-    protected function createItem(array $data)
-    {   
-        $user = Auth::user();
-        return Item::create([
-            'name' => $data['name'],
-            'category' => $data['category'],
-            'id' => $user['id'],
-            'price' => $data['price'],
-        ]);
-    }
-    public function edit_item(Request $request){
-        $item = Item::where('item_id', $request->item_id)->first();
-        return view('edit',['item' => $item]);
-    }
-    public function edit(Request $request){
-        $u = Auth::user();
-        $item=Item::where('item_id', $request->item_id)->first();
-        $item->name = $request->name;
-        $item->category = $request->category;
-        $item->price = $request->price;
-        $item->save();
-        $data = Item::where('id', $u->id)->get();
-        return view('adminHome', ['data' => $data])->with('success', 'Update!');
-    }
+     public function account()
+     {
+         $u = Auth::user();
+         $data = Item::where('id', $u->id)->get();
+         return view('adminHome', ['data' => $data]);
+     }
+ 
+     public function create(){
+         $user = Auth::user();
+         return view('create');
+     }
+ 
+     public function createNew(Request $request){
+ 
+         $user = Auth::user();
+ 
+         $this->validator($request->all())->validate();
+ 
+         event(new Registered($user = $this->createItem($request->all())));
+ 
+         $this->guard()->login(Auth::user());
+ 
+         if ($response = $this->registered($request, $user)) {
+             return $response;
+         }
+ 
+         return redirect($this->redirectPath())->with('success', 'Your item was added Succefully!');
+     }   
+ 
+     public function itemHome(){
+         return view('item');
+     }
+ 
+     protected function validator(array $data)
+     {
+         return Validator::make($data, [
+             'name' => ['required','max:30'],
+             'category' => ['required','regex:/^(Art|Collectibles|Electronics|Fashion|Home and Garden|Music|Office Supplies|Sports|Other)$/'],
+             'price' => ['required','min:0.00'],
+         ]);
+     }
+ 
+     protected function createItem(array $data)
+     {   
+         $user = Auth::user();
+         return Item::create([
+             'name' => $data['name'],
+             'category' => $data['category'],
+             'id' => $user['id'],
+             'price' => $data['price'],
+         ]);
+     }
+     public function edit_item(Request $request){
+         $item = Item::where('item_id', $request->item_id)->first();
+         return view('edit',['item' => $item]);
+     }
+     public function edit(Request $request){
+         $u = Auth::user();
+         $item=Item::where('item_id', $request->item_id)->first();
+         $item->name = $request->name;
+         $item->category = $request->category;
+         $item->price = $request->price;
+         $item->save();
+         $data = Item::where('id', $u->id)->get();
+         return view('adminHome', ['data' => $data])->with('success', 'Update!');
+     }
 }
