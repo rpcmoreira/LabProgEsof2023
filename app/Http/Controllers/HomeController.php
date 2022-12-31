@@ -60,7 +60,7 @@ class HomeController extends Controller
             return $response;
         }
 
-        return redirect($this->redirectPath())->with('success', 'Your item was added Succefully!');
+        return redirect($this->redirectPath())->with('success', 'Your item was added succefully!');
     }   
 
     public function itemHome(){
@@ -100,4 +100,34 @@ class HomeController extends Controller
         $data = Item::where('id', $u->id)->get();
         return view('adminHome', ['data' => $data])->with('success', 'Update!');
     }
+    public function remove_item(Request $request){
+        $item = Item::where('item_id', $request->item_id)->first();
+        return view('remove',['item' => $item]);
+    }
+    public function remove(Request $request)
+    {
+        $u = Auth::user();
+        $item = Item::where('item_id', $request->item_id)->pluck('item_id'); // Seleciona o ID do item a remover
+        Item::whereIn('category', $item->category)->delete();
+        Item::whereIn('name', $item->name)->delete();
+        Item::whereIn('price', $item->price)->delete();
+        Item::where('item_id', $item->item_id)->delete();
+        $item->delete();
+        return view('adminHome')->with('success', 'Remove complete!');
+    }
+    
+    public function edit_profile(Request $request){
+        $u = Auth::user();
+        $user=User::where('user_id', $request->user_id)->first();
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->location = $request->location;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+        $data = User::where('user_id', $u->id)->get();
+        return view('adminHome', ['data' => $data])->with('success', 'Update!');
+    }
 }
+
+
