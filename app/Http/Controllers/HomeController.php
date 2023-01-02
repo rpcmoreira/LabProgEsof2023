@@ -111,13 +111,10 @@ class HomeController extends Controller
     public function remove(Request $request)
     {
         $u = Auth::user();
-        $item = Item::where('item_id', $request->item_id)->pluck('item_id'); // Seleciona o ID do item a remover
-        Item::whereIn('category', $item->category)->delete();
-        Item::whereIn('name', $item->name)->delete();
-        Item::whereIn('price', $item->price)->delete();
-        Item::where('item_id', $item->item_id)->delete();
-        $item->delete();
-        return view('adminHome')->with('success', 'Remove complete!');
+        Item::where('item_id', $request->item_id)->delete();
+
+        $data = Item::where('id', $u->id)->get();
+        return view('adminHome', ['data' => $data])->with('success', 'Update!');
     }
     
     public function edit_profile(Request $request){

@@ -34,5 +34,5 @@ Route::get('/edit_profile', [HomeController::class, 'edit_profile'])->name('edit
 Route::post('/edit', [HomeController::class, 'edit'])->name('edit');
 Route::get('/edit_item', [HomeController::class, 'edit_item']);
 
-Route::get('/remove', [HomeController::class, 'remove'])->name('remove');
+Route::post('/remove', [HomeController::class, 'remove'])->name('remove');
 Route::get('/remove_item', [HomeController::class, 'remove_item']);
