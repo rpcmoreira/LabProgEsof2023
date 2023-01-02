@@ -28,6 +28,7 @@
                     <table class='table table-responsive-sm table-bordered align-center'>
                         <tr class='bg-primary text-white'>
                             <th class='text-center'>Name</th>
+                            <th class='text-center'>Item_id</th>
                             <th class='text-center'>Category</th>
                             <th class='text-center'>Price</th>
                             <th class='text-center'>Edit</th>
@@ -36,6 +37,7 @@
                         @foreach($data as $d)
                         <tr>
                             <td class='text-center'>{{ $d->name }}</td>
+                            <td class='text-center'>{{ $d->item_id }}</td>
                             <td class='text-center'>{{ $d->category }}</td>
                             <td class='text-center'>{{ $d->price }}€</td>
                             <td class='text-center'>

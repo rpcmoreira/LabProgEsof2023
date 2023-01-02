@@ -30,7 +30,7 @@ Auth::routes(['verify'=>true]);
 Route::get('/home', [HomeController::class, 'account'])->name('home')->middleware('auth');
 Route::get('/create', [HomeController::class, 'create'])->name('create');
 Route::post('/createNew', [HomeController::class, 'createNew'])->name('createNew');
-Route::post('/edit_profile', [HomeController::class, 'edit_profile'])->name('edit_profile');
+Route::get('/edit_profile', [HomeController::class, 'edit_profile'])->name('edit_profile');
 Route::post('/edit', [HomeController::class, 'edit'])->name('edit');
 Route::get('/edit_item', [HomeController::class, 'edit_item']);
 

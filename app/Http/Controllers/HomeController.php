@@ -86,24 +86,28 @@ class HomeController extends Controller
             'price' => $data['price'],
         ]);
     }
+    
     public function edit_item(Request $request){
         $item = Item::where('item_id', $request->item_id)->first();
         return view('edit',['item' => $item]);
     }
+
     public function edit(Request $request){
         $u = Auth::user();
-        $item=Item::where('item_id', $request->item_id)->first();
-        $item->name = $request->name;
-        $item->category = $request->category;
-        $item->price = $request->price;
-        $item->save();
+        Item::where('item_id', $request->item_id)->update(['name' => $request->name , 'category' => $request->category , 'price' => $request->price]);
         $data = Item::where('id', $u->id)->get();
         return view('adminHome', ['data' => $data])->with('success', 'Update!');
     }
+
+
+
     public function remove_item(Request $request){
         $item = Item::where('item_id', $request->item_id)->first();
         return view('remove',['item' => $item]);
     }
+
+
+
     public function remove(Request $request)
     {
         $u = Auth::user();
@@ -118,14 +122,14 @@ class HomeController extends Controller
     
     public function edit_profile(Request $request){
         $u = Auth::user();
-        $user=User::where('user_id', $request->user_id)->first();
+        $user=User::where('id', $request->id)->first();
         $user->name = $request->name;
         $user->username = $request->username;
         $user->location = $request->location;
         $user->email = $request->email;
         $user->password = $request->password;
         $user->save();
-        $data = User::where('user_id', $u->id)->get();
+        $data = User::where('id', $u->id)->get();
         return view('adminHome', ['data' => $data])->with('success', 'Update!');
     }
 }

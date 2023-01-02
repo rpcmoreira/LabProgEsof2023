@@ -64,8 +64,7 @@
                                 @enderror
                             </div>
                         </div>
-
-                        <input type="hidden" id="user_id" name="user_id" class="form-control @error('user_id') is-invalid @enderror" value="{{ $item->id }}">
+                        
                         <input type="hidden" id="item_id" name="item_id" class="form-control @error('item_id') is-invalid @enderror" value="{{ $item->item_id }}">
 
                         
