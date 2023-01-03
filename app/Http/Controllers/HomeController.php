@@ -96,7 +96,7 @@ class HomeController extends Controller
         $u = Auth::user();
         Item::where('item_id', $request->item_id)->update(['name' => $request->name , 'category' => $request->category , 'price' => $request->price]);
         $data = Item::where('id', $u->id)->get();
-        return view('adminHome', ['data' => $data])->with('success', 'Update!');
+        return redirect()->route('home')->with('warning', 'Item has been edited!')->with('data', $data);
     }
 
 
@@ -114,21 +114,25 @@ class HomeController extends Controller
         Item::where('item_id', $request->item_id)->delete();
 
         $data = Item::where('id', $u->id)->get();
-        return view('adminHome', ['data' => $data])->with('success', 'Update!');
+        return redirect()->route('home')->with('warning', 'Item has been removed!')->with('data', $data);
     }
     
-    public function edit_profile(Request $request){
-        $u = Auth::user();
-        $user=User::where('id', $request->id)->first();
-        $user->name = $request->name;
-        $user->username = $request->username;
-        $user->location = $request->location;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->save();
-        $data = User::where('id', $u->id)->get();
-        return view('adminHome', ['data' => $data])->with('success', 'Update!');
+    public function edit_profile(){
+        $user = Auth::user();
+        return view('editProfile', ['user' => $user]);
     }
+
+    public function update(Request $request){
+        $u = Auth::user();
+        dump(User::where('id', $u->id)->first());
+        User::where('id', $u->id)->update(['name' => $request->name , 'username' => $request->username , 'localization' => $request->localization]);
+
+        $data = User::where('id', $u->id)->get();
+        return redirect()->route('home')->with('success', 'Your profile has been updated!')->with('data', $data);
+    }
+
+
+    
 }
 
 
