@@ -75,17 +75,7 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
-        $request->validate([
-            'name' =>'required|min:4|string|max:255',
-            'category'=>'required|category|string|max:255',
-            'price'=>'required|price|string|max:255'
-        ]);
-        $item =Auth::item();
-        $item->name = $request['name'];
-        $item->category = $request['category'];
-        $item->price = $request['price'];
-        $item->save();
-        //return ITEM::set('message','Item atualizado');
+       
     }
 
     /**

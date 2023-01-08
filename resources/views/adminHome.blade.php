@@ -9,6 +9,11 @@
                 <p>{{ $message }}</p>
             </div>
             @endif
+            @if ($message = Session::get('warning'))
+            <div class="alert alert-warning">
+                <p>{{ $message }}</p>
+            </div>
+            @endif
         </div>
     </div>
 </div>
@@ -28,6 +33,7 @@
                     <table class='table table-responsive-sm table-bordered align-center'>
                         <tr class='bg-primary text-white'>
                             <th class='text-center'>Name</th>
+                            <th class='text-center'>Item_id</th>
                             <th class='text-center'>Category</th>
                             <th class='text-center'>Price</th>
                             <th class='text-center'>Edit</th>
@@ -36,6 +42,7 @@
                         @foreach($data as $d)
                         <tr>
                             <td class='text-center'>{{ $d->name }}</td>
+                            <td class='text-center'>{{ $d->item_id }}</td>
                             <td class='text-center'>{{ $d->category }}</td>
                             <td class='text-center'>{{ $d->price }}€</td>
                             <td class='text-center'>
@@ -43,6 +50,14 @@
                                     
                                     <button type="submit" class="btn btn-primary" name="item_id" value="{{$d->item_id}}">
                                         {{ __('Edit') }}
+                                    </button>
+                                </form>
+                            </td>
+                            <td class='text-center'>
+                                <form method="GET" id="form" action="{{ url('/remove_item') }}">
+                                    
+                                    <button type="submit" class="btn btn-primary" name="item_id" value="{{$d->item_id}}">
+                                        {{ __('Remove') }}
                                     </button>
                                 </form>
                             </td>

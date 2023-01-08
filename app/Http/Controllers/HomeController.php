@@ -60,7 +60,7 @@ class HomeController extends Controller
             return $response;
         }
 
-        return redirect($this->redirectPath())->with('success', 'Your item was added Succefully!');
+        return redirect($this->redirectPath())->with('success', 'Your item was added succefully!');
     }   
 
     public function itemHome(){
@@ -86,18 +86,53 @@ class HomeController extends Controller
             'price' => $data['price'],
         ]);
     }
+    
     public function edit_item(Request $request){
         $item = Item::where('item_id', $request->item_id)->first();
         return view('edit',['item' => $item]);
     }
+
     public function edit(Request $request){
         $u = Auth::user();
-        $item=Item::where('item_id', $request->item_id)->first();
-        $item->name = $request->name;
-        $item->category = $request->category;
-        $item->price = $request->price;
-        $item->save();
+        Item::where('item_id', $request->item_id)->update(['name' => $request->name , 'category' => $request->category , 'price' => $request->price]);
         $data = Item::where('id', $u->id)->get();
-        return view('adminHome', ['data' => $data])->with('success', 'Update!');
+        return redirect()->route('home')->with('warning', 'Item has been edited!')->with('data', $data);
     }
+
+
+
+    public function remove_item(Request $request){
+        $item = Item::where('item_id', $request->item_id)->first();
+        return view('remove',['item' => $item]);
+    }
+
+
+
+    public function remove(Request $request)
+    {
+        $u = Auth::user();
+        Item::where('item_id', $request->item_id)->delete();
+
+        $data = Item::where('id', $u->id)->get();
+        return redirect()->route('home')->with('warning', 'Item has been removed!')->with('data', $data);
+    }
+    
+    public function edit_profile(){
+        $user = Auth::user();
+        return view('editProfile', ['user' => $user]);
+    }
+
+    public function update(Request $request){
+        $u = Auth::user();
+        dump(User::where('id', $u->id)->first());
+        User::where('id', $u->id)->update(['name' => $request->name , 'username' => $request->username , 'localization' => $request->localization]);
+
+        $data = User::where('id', $u->id)->get();
+        return redirect()->route('home')->with('success', 'Your profile has been updated!')->with('data', $data);
+    }
+
+
+    
 }
+
+
