@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [ProjectController::class, 'home']);
+Route::get('/', [ProjectController::class, 'home'])->name('first');
 
 Route::get('/about', [ProjectController::class, 'about'])->name('about');
 Route::get('/products', [ProjectController::class, 'products'])->name('products');
@@ -39,3 +39,6 @@ Route::get('/edit_item', [HomeController::class, 'edit_item']);
 
 Route::post('/remove', [HomeController::class, 'remove'])->name('remove');
 Route::get('/remove_item', [HomeController::class, 'remove_item']);
+
+Route::get('/delete', [HomeController::class, 'delete'])->name('delete');
+Route::post('/erase', [HomeController::class, 'erase'])->name('erase');
