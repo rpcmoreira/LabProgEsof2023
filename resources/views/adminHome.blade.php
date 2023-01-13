@@ -58,7 +58,7 @@
                             <td class='text-center'>
                                 <form method="GET" id="form" action="{{ url('/remove_item') }}">
                                     
-                                    <button type="submit" class="btn btn-primary" 
+                                    <button type="submit" class="btn btn-primary"
                                     name="item_id" value="{{$d->item_id}}">
                                         {{ __('Remove') }}
                                     </button>

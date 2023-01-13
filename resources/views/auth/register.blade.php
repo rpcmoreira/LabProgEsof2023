@@ -16,8 +16,8 @@
                                 {{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" 
-                                class="form-control @error('name') is-invalid @enderror" name="name" 
+                                <input id="name" type="text"
+                                class="form-control @error('name') is-invalid @enderror" name="name"
                                 value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
@@ -33,9 +33,9 @@
                                 {{ __('Username') }}</label>
 
                             <div class="col-md-6">
-                                <input id="username" type="text" 
-                                class="form-control @error('username') is-invalid @enderror" 
-                                name="username" value="{{ old('username') }}" 
+                                <input id="username" type="text"
+                                class="form-control @error('username') is-invalid @enderror"
+                                name="username" value="{{ old('username') }}"
                                 required autocomplete="username" autofocus>
 
                                 @error('username')
@@ -51,8 +51,8 @@
                                 {{ __('City') }}</label>
 
                             <div class="col-md-6">
-                                <select id="localization" name="localization" 
-                                class="form-select form-control @error('localization') is-invalid @enderror" 
+                                <select id="localization" name="localization"
+                                class="form-select form-control @error('localization') is-invalid @enderror"
                                 value="{{ old('localization') }}" autofocus>
                                     <option value="" selected disabled hidden>---</option>
                                     <option value="Aveiro">Aveiro</option>
@@ -88,8 +88,8 @@
                                 {{ __('Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" 
-                                class="form-control @error('address') is-invalid @enderror" name="address" 
+                                <input id="address" type="text"
+                                class="form-control @error('address') is-invalid @enderror" name="address"
                                 value="{{ old('address') }}" required autocomplete="address" autofocus>
 
                                 @error('address')
@@ -105,8 +105,8 @@
                                 {{ __('Email Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" 
-                                class="form-control @error('email') is-invalid @enderror" 
+                                <input id="email" type="email"
+                                class="form-control @error('email') is-invalid @enderror"
                                 name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
@@ -122,8 +122,8 @@
                                 {{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" 
-                                class="form-control @error('password') is-invalid @enderror" 
+                                <input id="password" type="password"
+                                class="form-control @error('password') is-invalid @enderror"
                                 name="password" required autocomplete="new-password">
 
                                 @error('password')
@@ -139,7 +139,7 @@
                                 {{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" 
+                                <input id="password-confirm" type="password" class="form-control"
                                 name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>

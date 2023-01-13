@@ -78,7 +78,7 @@ Produtos
                                     {{ $user[$numcand]->price }}€<br>
                                     <form method="POST" action="/show">
                                         @csrf
-                    <button type="submit" class="btn btn-primary" name="item_id" 
+                    <button type="submit" class="btn btn-primary" name="item_id"
                     value="{{$user[$numcand]->item_id}}">Show</button>
                     </form>
                                 </td>

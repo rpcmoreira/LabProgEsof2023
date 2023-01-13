@@ -18,8 +18,8 @@
                                 {{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" 
-                                class="form-control @error('name') is-invalid @enderror" name="name" 
+                                <input id="name" type="text"
+                                class="form-control @error('name') is-invalid @enderror" name="name"
                                 value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
@@ -35,7 +35,7 @@
                                 {{ __('Category') }}</label>
 
                             <div class="col-md-6">
-                                <select id="category" name="category" 
+                                <select id="category" name="category"
                                 class="form-select form-control @error('category') is-invalid @enderror" autofocus>
                                     <option value="" selected disabled hidden>---</option>
                                     <option value="Art">Art</option>
@@ -62,8 +62,8 @@
                                 {{ __('Price') }}</label>
 
                             <div class="col-md-6">
-                                <input id="price" type="number" step="0.01" 
-                                class="form-control @error('price') is-invalid @enderror" name="price" 
+                                <input id="price" type="number" step="0.01"
+                                class="form-control @error('price') is-invalid @enderror" name="price"
                                 value="{{ old('price') }}" required autocomplete="price">
 
                                 @error('price')
@@ -74,7 +74,7 @@
                             </div>
                         </div>
 
-                        <input type="hidden" id="user_id" name="user_id" value="{{ $id }}">
+                        <input type="hidden" id="user_id" name="user_id" value="{{ $id }}"> 
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
