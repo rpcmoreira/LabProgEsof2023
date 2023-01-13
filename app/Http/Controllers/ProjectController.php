@@ -16,8 +16,7 @@ use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 class ProjectController extends Controller
 {
-    public function home()
-    {
+    public function home(){
         return view('home');
     }
 
@@ -33,20 +32,17 @@ class ProjectController extends Controller
 
     public function products(Request $request)
     {
-        if ($request->has('localization') && $request->has('category'))
-        {
+        if ($request->has('localization') && $request->has('category')) {
             $user = DB::table('users')->join('items', 'items.id', '=',
              'users.id')->where('users.localization', $request->localization)->
             where('category', $request->category)->paginate(28);
-        }elseif ($request->has('localization'))
-        {
+        }elseif ($request->has('localization')) {
             $user = DB::table('users')->join('items', 'items.id', '=',
              'users.id')->where('users.localization', $request->localization)->paginate(28);
-        }elseif ($request->has('category'))
-        {
+        }elseif ($request->has('category')) {
             $user = Item::where('category', $request->category)->paginate(28);
             return view('prodList', ['user' => $user]);
-        }else { 
+        }else {
             $user = Item::paginate(28);
         }
         return view('prodList', ['user' => $user]);
