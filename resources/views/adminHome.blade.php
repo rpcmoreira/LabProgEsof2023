@@ -31,6 +31,7 @@
                     @else
                     Here are your listings:
                     <table class='table table-responsive-sm table-bordered align-center'>
+                        <caption>Tabela com as minhas listagens</caption>
                         <tr class='bg-primary text-white'>
                             <th class='text-center'>Name</th>
                             <th class='text-center'>Item_id</th>
@@ -48,7 +49,8 @@
                             <td class='text-center'>
                                 <form method="GET" id="form" action="{{ url('/edit_item') }}">
                                     
-                                    <button type="submit" class="btn btn-primary" name="item_id" value="{{$d->item_id}}">
+                                    <button type="submit" class="btn btn-primary"
+                                    name="item_id" value="{{$d->item_id}}">
                                         {{ __('Edit') }}
                                     </button>
                                 </form>
@@ -56,7 +58,8 @@
                             <td class='text-center'>
                                 <form method="GET" id="form" action="{{ url('/remove_item') }}">
                                     
-                                    <button type="submit" class="btn btn-primary" name="item_id" value="{{$d->item_id}}">
+                                    <button type="submit" class="btn btn-primary" 
+                                    name="item_id" value="{{$d->item_id}}">
                                         {{ __('Remove') }}
                                     </button>
                                 </form>

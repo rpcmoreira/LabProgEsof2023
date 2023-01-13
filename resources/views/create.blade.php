@@ -14,10 +14,13 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" 
+                                class="form-control @error('name') is-invalid @enderror" name="name" 
+                                value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -28,10 +31,12 @@
                         </div>
 
                         <div class="row mb-3 ">
-                            <label for="category" class="col-md-4 col-form-label text-md-end">{{ __('Category') }}</label>
+                            <label for="category" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Category') }}</label>
 
                             <div class="col-md-6">
-                                <select id="category" name="category" class="form-select form-control @error('category') is-invalid @enderror" autofocus>
+                                <select id="category" name="category" 
+                                class="form-select form-control @error('category') is-invalid @enderror" autofocus>
                                     <option value="" selected disabled hidden>---</option>
                                     <option value="Art">Art</option>
                                     <option value="Collectibles">Collectibles</option>
@@ -53,10 +58,13 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="price" class="col-md-4 col-form-label text-md-end">{{ __('Price') }}</label>
+                            <label for="price" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Price') }}</label>
 
                             <div class="col-md-6">
-                                <input id="price" type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price">
+                                <input id="price" type="number" step="0.01" 
+                                class="form-control @error('price') is-invalid @enderror" name="price" 
+                                value="{{ old('price') }}" required autocomplete="price">
 
                                 @error('price')
                                 <span class="invalid-feedback" role="alert">

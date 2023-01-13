@@ -79,7 +79,8 @@ class HomeController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'max:30'],
-            'category' => ['required', 'regex:/^(Art|Collectibles|Electronics|Fashion|Home and Garden|Music|Office Supplies|Sports|Other)$/'],
+            'category' => ['required', 'regex:/^(Art|Collectibles|Electronics|
+            Fashion|Home and Garden|Music|Office Supplies|Sports|Other)$/'],
             'price' => ['required', 'min:0.00'],
         ]);
     }
@@ -104,7 +105,8 @@ class HomeController extends Controller
     public function edit(Request $request)
     {
         $u = Auth::user();
-        Item::where('item_id', $request->item_id)->update(['name' => $request->name, 'category' => $request->category, 'price' => $request->price]);
+        Item::where('item_id', $request->item_id)->update(['name' => $request->name,
+         'category' => $request->category, 'price' => $request->price]);
         $data = Item::where('id', $u->id)->get();
         return redirect()->route('home')->with('warning', 'Item has been edited!')->with('data', $data);
     }
@@ -137,7 +139,8 @@ class HomeController extends Controller
     public function update(Request $request)
     {
         $u = Auth::user();
-        User::where('id', $u->id)->update(['name' => $request->name, 'username' => $request->username, 'localization' => $request->localization]);
+        User::where('id', $u->id)->update(['name' => $request->name,
+         'username' => $request->username, 'localization' => $request->localization]);
 
         $data = User::where('id', $u->id)->get();
         return redirect()->route('home')->with('success', 'Your profile has been updated!')->with('data', $data);
