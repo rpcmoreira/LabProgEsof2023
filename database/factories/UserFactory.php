@@ -18,7 +18,10 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-        $loc=Arr::random(array('Aveiro','Beja','Braga','Bragança','Castelo Branco','Coimbra','Évora','Faro','Guarda','Leiria','Lisboa','Portalegre','Porto','Santarém','Setubal','Viana do Castelo','Vila Real','Viseu'));
+        $loc=Arr::random(array('Aveiro','Beja','Braga','Bragança',
+        'Castelo Branco','Coimbra','Évora','Faro','Guarda',
+        'Leiria','Lisboa','Portalegre','Porto','Santarém','Setubal',
+        'Viana do Castelo','Vila Real','Viseu'));
 
         return [
             'name' => $this->faker->name,

@@ -8,7 +8,8 @@
                 <div class="card-header">{{ __('Support') }}</div>
 
                 <div class="card-body">
-                    {{ __('In case you need support or find some bugs on the website, we would appreciate if you could send us an email at support@sell.me or
+                    {{ __('In case you need support or find some bugs on the website,
+                        we would appreciate if you could send us an email at support@sell.me or
                         give us a call at +351 999999999.') }}
                 </div>
             </div>

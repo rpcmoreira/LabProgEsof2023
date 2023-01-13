@@ -17,7 +17,7 @@
       </div>
       
       <form action="/create-checkout-session.php" method="POST">
-        <button type="submit" id="checkout-button">Checkout</button> 
+        <button type="submit" id="checkout-button">Checkout</button>
       </form>
     </section>
   </body>

@@ -16,38 +16,45 @@ use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 class ProjectController extends Controller
 {
-    public function home(){
+    public function home()
+    {
         return view('home');
     }
 
-    public function support(){
+    public function support()
+    {
         return view('support');
     }
 
-    public function about(){
+    public function about()
+    {
         return view('about');
     }
 
     public function products(Request $request)
     {
-        if($request->has('localization') && $request->has('category')){
-            $user = DB::table('users')->join('items', 'items.id', '=', 'users.id')->where('users.localization', $request->localization)->
+        if ($request->has('localization') && $request->has('category'))
+        {
+            $user = DB::table('users')->join('items', 'items.id', '=',
+             'users.id')->where('users.localization', $request->localization)->
             where('category', $request->category)->paginate(28);
-        }
-        else if($request->has('localization')){
-            $user = DB::table('users')->join('items', 'items.id', '=', 'users.id')->where('users.localization', $request->localization)->paginate(28);
-        }
-        else if($request->has('category')){
+        }elseif ($request->has('localization'))
+        {
+            $user = DB::table('users')->join('items', 'items.id', '=',
+             'users.id')->where('users.localization', $request->localization)->paginate(28);
+        }elseif ($request->has('category'))
+        {
             $user = Item::where('category', $request->category)->paginate(28);
             return view('prodList', ['user' => $user]);
+        }else { 
+            $user = Item::paginate(28);
         }
-        else $user = Item::paginate(28);
         return view('prodList', ['user' => $user]);
     }
     
-    public function show(Request $request){ // Passamos formulario
+    public function show(Request $request)
+    {
         $user = Item::where('item_id', $request->item_id)->first();
-        //dump($user);
         return view('item', ['user' => $user]);
     }
     
