@@ -16,8 +16,8 @@
                                 {{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" 
-                                class="form-control @error('name') is-invalid @enderror" name="name" 
+                                <input id="name" type="text"
+                                class="form-control @error('name') is-invalid @enderror" name="name"
                                 value="{{ $user->name }}" required autocomplete="name" autofocus>
 
                                 @error('name')
@@ -33,44 +33,44 @@
                                 {{ __('Localization') }}</label>
 
                             <div class="col-md-6">
-                                <select id="localization" name="localization" 
+                                <select id="localization" name="localization"
                                 class="form-select form-control @error('localization') is-invalid @enderror" autofocus>
 
-                                    <option {{($user->localization) == 'Aveiro' ? 'selected' : ''}} 
+                                    <option {{($user->localization) == 'Aveiro' ? 'selected' : ''}}
                                         value="Aveiro">Aveiro</option>
-                                    <option {{($user->localization) == 'Beja' ? 'selected' : ''}} 
+                                    <option {{($user->localization) == 'Beja' ? 'selected' : ''}}
                                         value="Beja">Beja</option>
-                                    <option {{($user->localization) == 'Braga' ? 'selected' : ''}} 
+                                    <option {{($user->localization) == 'Braga' ? 'selected' : ''}}
                                         value="Braga">Braga</option>
-                                    <option {{($user->localization) == 'Bragança' ? 'selected' : ''}} 
+                                    <option {{($user->localization) == 'Bragança' ? 'selected' : ''}}
                                         value="Bragança">Bragança</option>
-                                    <option {{($user->localization) == 'Castelo Branco' ? 'selected' : ''}} 
+                                    <option {{($user->localization) == 'Castelo Branco' ? 'selected' : ''}}
                                         value="Castelo Branco">Castelo Branco</option>
-                                    <option {{($user->localization) == 'Coimbra' ? 'selected' : ''}} 
+                                    <option {{($user->localization) == 'Coimbra' ? 'selected' : ''}}
                                         value="Coimbra">Coimbra</option>
-                                    <option {{($user->localization) == 'Evora' ? 'selected' : ''}} 
+                                    <option {{($user->localization) == 'Evora' ? 'selected' : ''}}
                                         value="Évora">Évora</option>
-                                    <option {{($user->localization) == 'Faro' ? 'selected' : ''}} 
+                                    <option {{($user->localization) == 'Faro' ? 'selected' : ''}}
                                         value="Faro">Faro</option>
-                                    <option {{($user->localization) == 'Guarda' ? 'selected' : ''}} 
+                                    <option {{($user->localization) == 'Guarda' ? 'selected' : ''}}
                                         value="Guarda">Guarda</option>
-                                    <option {{($user->localization) == 'Leiria' ? 'selected' : ''}} 
+                                    <option {{($user->localization) == 'Leiria' ? 'selected' : ''}}
                                         value="Leiria">Leiria</option>
-                                    <option {{($user->localization) == 'Lisboa' ? 'selected' : ''}} 
+                                    <option {{($user->localization) == 'Lisboa' ? 'selected' : ''}}
                                         value="Lisboa">Lisboa</option>
-                                    <option {{($user->localization) == 'Portalegre' ? 'selected' : ''}} 
+                                    <option {{($user->localization) == 'Portalegre' ? 'selected' : ''}}
                                         value="Portalegre">Portalegre</option>
-                                    <option {{($user->localization) == 'Porto' ? 'selected' : ''}} 
+                                    <option {{($user->localization) == 'Porto' ? 'selected' : ''}}
                                         value="Porto">Porto</option>
-                                    <option {{($user->localization) == 'Santarem' ? 'selected' : ''}} 
+                                    <option {{($user->localization) == 'Santarem' ? 'selected' : ''}}
                                         value="Santarem">Santarem</option>
-                                    <option {{($user->localization) == 'Setubal' ? 'selected' : ''}} 
+                                    <option {{($user->localization) == 'Setubal' ? 'selected' : ''}}
                                         value="Setubal">Setubal</option>
-                                    <option {{($user->localization) == 'Viana do Castelo' ? 'selected' : ''}} 
+                                    <option {{($user->localization) == 'Viana do Castelo' ? 'selected' : ''}}
                                         value="Viana do Castelo">Viana do Castelo</option>
-                                    <option {{($user->localization) == 'Vila Real' ? 'selected' : ''}} 
+                                    <option {{($user->localization) == 'Vila Real' ? 'selected' : ''}}
                                         value="Vila Real">Vila Real</option>
-                                    <option {{($user->localization) == 'Viseu' ? 'selected' : ''}} 
+                                    <option {{($user->localization) == 'Viseu' ? 'selected' : ''}}
                                         value="Viseu">Viseu</option>
                                 </select>
                                 @error('localization')
@@ -87,7 +87,7 @@
 
                             <div class="col-md-6">
                                 <input id="username" type="text"
-                                class="form-control @error('username') is-invalid @enderror" name="username" 
+                                class="form-control @error('username') is-invalid @enderror" name="username"
                                 value="{{ $user->username }}" required autocomplete="username" autofocus>
 
                                 @error('username')
@@ -103,8 +103,8 @@
                                 {{ __('Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" 
-                                class="form-control @error('address') is-invalid @enderror" name="address" 
+                                <input id="address" type="text"
+                                class="form-control @error('address') is-invalid @enderror" name="address"
                                 value="{{ $user->address }}" required autocomplete="address" autofocus>
 
                                 @error('address')

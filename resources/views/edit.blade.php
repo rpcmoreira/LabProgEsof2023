@@ -18,8 +18,8 @@
                                 {{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" 
-                                class="form-control @error('name') is-invalid @enderror" name="name" 
+                                <input id="name" type="text"
+                                class="form-control @error('name') is-invalid @enderror" name="name"
                                 value="{{ $item->name }}" required autocomplete="name" autofocus>
 
                                 @error('name')
@@ -35,26 +35,26 @@
                                 {{ __('Category') }}</label>
 
                             <div class="col-md-6">
-                                <select id="category" name="category" 
+                                <select id="category" name="category"
                                 class="form-select form-control @error('category') is-invalid @enderror" autofocus>
 
-                                    <option {{($item->category) == 'Art' ? 'selected' : ''}} 
+                                    <option {{($item->category) == 'Art' ? 'selected' : ''}}
                                         value="Art">Art</option>
-                                    <option {{($item->category) == 'Collectibles' ? 'selected' : ''}} 
+                                    <option {{($item->category) == 'Collectibles' ? 'selected' : ''}}
                                         value="Collectibles">Collectibles</option>
-                                    <option {{($item->category) == 'Electronics' ? 'selected' : ''}} 
+                                    <option {{($item->category) == 'Electronics' ? 'selected' : ''}}
                                         value="Electronics">Electronics</option>
-                                    <option {{($item->category) == 'Fashion' ? 'selected' : ''}} 
+                                    <option {{($item->category) == 'Fashion' ? 'selected' : ''}}
                                         value="Fashion">Fashion</option>
-                                    <option {{($item->category) == 'Home and Garden' ? 'selected' : ''}} 
+                                    <option {{($item->category) == 'Home and Garden' ? 'selected' : ''}}
                                         value="Home and Garden">Home and Garden</option>
-                                    <option {{($item->category) == 'Music' ? 'selected' : ''}} 
+                                    <option {{($item->category) == 'Music' ? 'selected' : ''}}
                                         value="Music">Music</option>
-                                    <option {{($item->category) == 'Office Supplies' ? 'selected' : ''}} 
+                                    <option {{($item->category) == 'Office Supplies' ? 'selected' : ''}}
                                         value="Office Supplies">Office Supplies</option>
-                                    <option {{($item->category) == 'Sports' ? 'selected' : ''}} 
+                                    <option {{($item->category) == 'Sports' ? 'selected' : ''}}
                                         value="Sports">Sports</option>
-                                    <option {{($item->category) == 'Others' ? 'selected' : ''}} 
+                                    <option {{($item->category) == 'Others' ? 'selected' : ''}}
                                         value="Others">Others</option>
                                 </select>
                                 @error('category')
@@ -70,8 +70,8 @@
                                 {{ __('Price') }}</label>
 
                             <div class="col-md-6">
-                                <input id="price" type="number" step="0.01" 
-                                class="form-control @error('price') is-invalid @enderror" name="price" 
+                                <input id="price" type="number" step="0.01"
+                                class="form-control @error('price') is-invalid @enderror" name="price"
                                 value="{{ $item->price }}" required autocomplete="price">
 
                                 @error('price')
@@ -82,8 +82,8 @@
                             </div>
                         </div>
                         
-                        <input type="hidden" id="item_id" name="item_id" 
-                        class="form-control @error('item_id') is-invalid @enderror" 
+                        <input type="hidden" id="item_id" name="item_id"
+                        class="form-control @error('item_id') is-invalid @enderror"
                         value="{{ $item->item_id }}">
 
                         
