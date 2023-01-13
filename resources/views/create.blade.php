@@ -74,7 +74,7 @@
                             </div>
                         </div>
 
-                        <input type="hidden" id="user_id" name="user_id" value="{{ $id }}"> 
+                        <input type="hidden" id="user_id" name="user_id" value="{{ $id }}">
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
