@@ -9,7 +9,7 @@ final class ItemFactoryTest extends TestCase
     public function testClassConstructor()
     {
 
-        $item = new Item();
+        $item = new Item;
 
 
         $this->assertEmpty($item->getName());
