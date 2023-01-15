@@ -18,6 +18,13 @@ require 'vendor/autoload.php';
 // Sign in to see your own test API key embedded in code samples.
 \Stripe\Stripe::setApiKey('sk_test_QUXcoU3BnbZXp6IMVi7BkW8s');
 
+use App\Models\Photo;
+//require 'vendor/autoload.php';
+// This is a public sample test API key.
+// Don’t submit any personally identifiable information in requests made with this key.
+// Sign in to see your own test API key embedded in code samples.
+//\Stripe\Stripe::setApiKey('sk_test_QUXcoU3BnbZXp6IMVi7BkW8s');
+
 class HomeController extends Controller
 {
     use RegistersUsers;
@@ -128,6 +135,20 @@ class HomeController extends Controller
 
         $data = Item::where('id', $u->id)->get();
         return redirect()->route('home')->with('warning', 'Item has been removed!')->with('data', $data);
+    }
+
+    public function store(Request $request){
+        $request->validate([
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',]);
+    
+        $name = $request->file('image')->getClientOriginalName();
+         $request->file('image')->store('public/images');
+    
+        $picture = new Photo;
+        $picture->name = $name;
+        $picture->path = $request->file('image')->hashName();
+        $picture->save();
+        return redirect()->back()->with('status', 'Image Has been uploaded');
     }
 
     public function edit_profile()
