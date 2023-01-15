@@ -54,7 +54,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function getName(): string
+    public function getName() : string
     {
         return $this->name;
     }
@@ -86,7 +86,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function setUsername(string $username)
     {
-        $this->username = $username
+        $this->username = $username;
     }
 
     public function setEmail(string $email)
@@ -96,12 +96,12 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function setAddress(string $address)
     {
-        $this->address = $address
+        $this->address = $address;
     }
 
     public function setLocalization(string $localization)
     {
-        $this->localization = $localization
+        $this->localization = $localization;
     }
 
 }

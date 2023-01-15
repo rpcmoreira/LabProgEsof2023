@@ -24,7 +24,7 @@ class Item extends Model
 
 
 
-    public function getName(): string
+    public function getName() : string
     {
         return $this->name;
     }
@@ -50,7 +50,7 @@ class Item extends Model
     }
     public function setCategory(string $cat)
     {
-        $this->cat = $cat
+        $this->cat = $cat;
     }
     public function setPrice(float $price)
     {
