@@ -5,6 +5,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterControllerAdd;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\PhotoController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -38,4 +39,10 @@ Route::post('/edit', [HomeController::class, 'edit'])->name('edit');
 Route::get('/edit_item', [HomeController::class, 'edit_item']);
 
 Route::post('/remove', [HomeController::class, 'remove'])->name('remove');
+
 Route::get('/remove_item', [HomeController::class, 'remove_item']);
+
+Route::get('/delete', [HomeController::class, 'delete'])->name('delete');
+Route::post('/erase', [HomeController::class, 'erase'])->name('erase');
+
+Route::post('save', [HomeController::class, 'store'])->name('upload.picture')->middleware('auth');

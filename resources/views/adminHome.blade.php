@@ -66,6 +66,13 @@
                     </table>
                     @endif
                 </div>
+                <div class="card-body">
+                    @if($message = Session::get('status'))
+                    <div class="alert alert-success">
+                        <p>{{ $message }}</p>
+                    </div>
+                    @endif
+                </div>
             </div>
         </div>
     </div>
