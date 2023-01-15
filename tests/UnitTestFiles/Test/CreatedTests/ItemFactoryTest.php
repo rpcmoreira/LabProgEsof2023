@@ -6,10 +6,9 @@ use PHPUnit\Framework\TestCase;
 final class ItemFactoryTest extends TestCase
 {
 
-    public function testClassConstructor()
-    {
+    public function testClassConstructor(){
 
-        $item = new Item;
+        $item = new Item();
 
 
         $this->assertEmpty($item->getName());
