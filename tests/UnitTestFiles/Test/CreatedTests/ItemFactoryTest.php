@@ -4,11 +4,14 @@ use \App\Models\Item;
 use PHPUnit\Framework\TestCase;
 final class ItemFactoryTest extends TestCase{
     public function testClassConstructor(){
-
-    $item = new Item();
-    $this->assertSame('Drill Bits', $item->name);
+    $item = Item::create([
+        'name' => 'Drill Bit',
+        'category' => 'Others',
+        'price' => 54.52,
+    ]);
+    $this->assertSame('Drill Bit', $item->name);
     $this->assertSame("Others", $item->category);
-    $this->assertSame("Bom para viagens longas", $item->description);
+    $this->assertEmpty($item->description);
     $this->assertSame(54.10, $item->price);
 
 }
