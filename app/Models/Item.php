@@ -9,9 +9,9 @@ class Item extends Model
 {
     use HasFactory;
     
-    private $name;
-    private $cat;
-    private $desc;
+    private $name = "";
+    private $cat = "";
+    private $desc = "";
     private $price = 0.00;
 
     protected $fillable = [
