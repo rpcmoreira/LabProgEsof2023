@@ -19,3 +19,4 @@ yarn-error.log
 .env.example
 .env.example
 app/Http/Controllers/ItemController.php
+xdebug/
