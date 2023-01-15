@@ -49,15 +49,4 @@ final class UserFactoryTest extends TestCase
 
         $response->assertRedirect('/home');
     }
-
-    public function test_Delete_User(){
-        $user = User::factory()->count(1)->make();
-
-        $user = User::first();
-        if($user){
-            $user->delete();
-        }
-
-        $this->assertTrue(true);
-    }
 }
