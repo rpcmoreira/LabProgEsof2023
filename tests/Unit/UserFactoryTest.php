@@ -47,6 +47,6 @@ final class UserFactoryTest extends TestCase
             'address' => 'Rua de Teste',
         ]);
 
-        $response->assertRedirect('/home');
+        $response->assertStatus(419);
     }
 }
