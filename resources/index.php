@@ -19,7 +19,6 @@
 
         <div id="card-error" role="alert"></div>
     </div>
-
     <button> Submit Payment</button>
 </form>
 </body>

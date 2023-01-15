@@ -1,25 +1,33 @@
 <?php
 
-namespace App\Models;
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
-
+use \App\Models\User;
 use PHPUnit\Framework\TestCase;
-final class UserFactoryTest extends TestCase{
-    public function testClassConstructor(){
-    //$user = new User("Rui", "rpcardoso", "Aveiro", "Adress", "Email", "Verificado em algum lado", "password", "remember");
-    $user = new User();
-    $this->assertSame('Rui', $user->name);
-    $this->assertSame("rpcardoso", $user->usernames);
-    $this->assertSame("Aveiro", $user->location);
-    $this->assertSame("Casa", $user->address);
-    $this->assertSame("Email", $user->email);
-    $this->assertSame("Password", $user->password);
-}
-// Os testes serão colocados aqui
+use Illuminate\Support\Facades\Hash;
+
+final class UserFactoryTest extends TestCase
+{
+    public function testClassConstructor()
+    {
+        $user = new User();
+
+        $this->assertEmpty($user->getName());
+        $this->assertEmpty($user->getUsername());
+        $this->assertEmpty($user->getEmail());
+        $this->assertEmpty($user->getLocalization());
+        $this->assertEmpty($user->getAddress());
+
+
+        $user->setName('Cristophe');
+        $user->setUsername('username');
+        $user->setEmail('teste@teste.teste');
+        $user->setLocalization('Porto');
+        $user->setAddress('Rua de Teste');
+
+        $this->assertSame('Cristophe', $user->getName());
+        $this->assertSame('username', $user->getUsername());
+        $this->assertSame('teste@teste.teste', $user->getEmail());
+        $this->assertSame('Porto', $user->getLocalization());
+        $this->assertSame('Rua de Teste', $user->getAddress());
+    }
+    // Os testes serão colocados aqui
 }
