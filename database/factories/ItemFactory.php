@@ -59,6 +59,8 @@ class ItemFactory extends Factory
             case 'Others':
                 $name = Arr::random(array('Gift Card', 'Hair Curler', 'Drill Bits', 'Sunglasses'));
                 break;
+            default:
+                $name = 'Outro';
         }
         
         return [

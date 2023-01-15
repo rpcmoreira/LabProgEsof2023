@@ -14,7 +14,9 @@ Produtos
 
         <form method="GET" id="form" action="{{ route('products') }}">
             <div class="text-justified">
-                @php $dist=array('Aveiro','Beja','Braga','Bragança','Castelo Branco','Coimbra','Évora','Faro','Guarda','Leiria','Lisboa','Portalegre','Porto','Santarém','Setubal','Viana do Castelo','Vila Real','Viseu'); @endphp
+                @php $dist=array('Aveiro','Beja','Braga','Bragança','Castelo Branco','Coimbra',
+                'Évora','Faro','Guarda','Leiria','Lisboa','Portalegre','Porto','Santarém',
+                'Setubal','Viana do Castelo','Vila Real','Viseu'); @endphp
                 <select name="localization" id="localization" form="form">
                     <option value="" selected disabled hidden>Location</option>
 
@@ -29,7 +31,8 @@ Produtos
             </div>
             <br>
             <div class="text-justified">
-                @php $cat=array('Art','Collectibles','Electronics','Fashion','Home and Garden','Music','Office Supplies','Sports','Others'); @endphp
+                @php $cat=array('Art','Collectibles','Electronics','Fashion',
+                'Home and Garden','Music','Office Supplies','Sports','Others'); @endphp
                 <select name="category" id="category" form="form">
                     <option value="" selected disabled hidden>Category</option>
                     @foreach($cat as $c)
@@ -58,6 +61,7 @@ Produtos
     <div class="col-sm-8">
         <div class="table-responsive">
             <table class="table">
+            <caption>Tabela Produtos</caption>
                 <tr>
                     @for($numcand=0,$numcell=0; $numcand < count($user) ; $numcand++,$numcell++) @if($numcell==4) </tr>
                 <tr>
@@ -65,13 +69,15 @@ Produtos
                     @endif
                     <td>
                         <table>
+                        <caption>Tabela Produtos</caption>
                             <tr>
                                 <td class="text-center">
                                     {{ $user[$numcand]->name }}<br>
                                     {{ $user[$numcand]->price }}€<br>
                                     <form method="POST" action="/show">
-                                        @csrf 
-                    <button type="submit" class="btn btn-primary" name="item_id" value="{{$user[$numcand]->item_id}}">Show</button>
+                                        @csrf
+                    <button type="submit" class="btn btn-primary" name="item_id"
+                    value="{{$user[$numcand]->item_id}}">Show</button>
                     </form>
                                 </td>
                 </td>

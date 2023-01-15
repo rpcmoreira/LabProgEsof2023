@@ -14,7 +14,9 @@
                     {{ __('Are you sure you want to remove this item?') }}
                         @csrf
 
-                        <input type="hidden" id="item_id" name="item_id" class="form-control @error('item_id') is-invalid @enderror" value="{{ $item->item_id }}">
+                        <input type="hidden" id="item_id" name="item_id"
+                        class="form-control @error('item_id') is-invalid @enderror"
+                        value="{{ $item->item_id }}">
                         
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
