@@ -13,8 +13,6 @@ final class UserFactoryTest extends TestCase{
             'localization' => 'Aveiro',
             'address' => 'Casa de Algarve',
         ]);
-    //$user = new User();
-
     $this->assertSame('Christophe', $user->name);
     $this->assertSame("rpcardoso", $user->usernames);
     $this->assertSame("Aveiro", $user->localization);
