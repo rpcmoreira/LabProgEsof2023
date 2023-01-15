@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 final class ItemFactoryTest extends TestCase
 {
 
-    public function testClassConstructor(){
+    public function test_ClassConstructor(){
 
         $item = new Item();
 

@@ -1,12 +1,12 @@
 <?php
 
 use \App\Models\User;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 use Illuminate\Support\Facades\Hash;
 
 final class UserFactoryTest extends TestCase
 {
-    public function testClassConstructor()
+    public function test_ClassConstructor()
     {
         $user = new User();
 
@@ -29,5 +29,35 @@ final class UserFactoryTest extends TestCase
         $this->assertSame('Porto', $user->getLocalization());
         $this->assertSame('Rua de Teste', $user->getAddress());
     }
-    // Os testes serão colocados aqui
+
+    public function test_login(){
+        $response = $this->get('/login');
+
+        $response->assertStatus(200);
+    }
+
+    public function test_register(){
+        $response = $this->post('/register', [
+            'name' => 'Cristophe',
+            'username' => 'username',
+            'email' => 'teste@teste.teste',
+            'password' => 'password',
+            'password_confirmation' => 'password',
+            'localization' => 'Porto',
+            'address' => 'Rua de Teste',
+        ]);
+
+        $response->assertRedirect('/home');
+    }
+
+    public function test_Delete_User(){
+        $user = User::factory()->count(1)->make();
+
+        $user = User::first();
+        if($user){
+            $user->delete();
+        }
+
+        $this->assertTrue(true);
+    }
 }
