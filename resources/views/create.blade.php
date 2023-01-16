@@ -89,8 +89,7 @@
         <div class="col-md-12">
             <button type="submit" class="btn btn-primary" id="submit">Submit</button>
         </div>
-    </div>
-</form>
+     </div>
                             
                         <input type="hidden" id="user_id" name="user_id" value="{{ $id }}">
 

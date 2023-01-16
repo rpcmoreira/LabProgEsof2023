@@ -74,6 +74,7 @@ Produtos
                                 <td class="text-center">
                                     {{ $user[$numcand]->name }}<br>
                                     {{ $user[$numcand]->price }}€<br>
+                                    {{ $user[$numcand]->picture }}</br>
                                     <form method="POST" action="/show">
                                         @csrf
                     <button type="submit" class="btn btn-primary" name="item_id"

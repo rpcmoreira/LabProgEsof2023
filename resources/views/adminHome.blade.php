@@ -39,6 +39,7 @@
                             <th class='text-center'>Price</th>
                             <th class='text-center'>Edit</th>
                             <th class='text-center'>Delete</th>
+                            <th class='text-center'>Picture</th>
                         </tr>
                         @foreach($data as $d)
                         <tr>
@@ -61,6 +62,15 @@
                                     <button type="submit" class="btn btn-primary"
                                     name="item_id" value="{{$d->item_id}}">
                                         {{ __('Remove') }}
+                                    </button>
+                                </form>
+                            </td>
+                            <td class='text-center'>
+                                <form method="GET" id="form" action="{{ url('/store') }}">
+                                    
+                                    <button type="submit" class="btn btn-primary"
+                                    name="item_id" value="{{$d->item_id}}">
+                                        {{ __('Upload picture') }}
                                     </button>
                                 </form>
                             </td>

@@ -44,4 +44,4 @@ Route::get('/remove_item', [HomeController::class, 'remove_item']);
 Route::get('/delete', [HomeController::class, 'delete'])->name('delete');
 Route::post('/erase', [HomeController::class, 'erase'])->name('erase');
 
-Route::post('save', [HomeController::class, 'store'])->name('upload.picture')->middleware('auth');
+Route::get('save', [HomeController::class, 'store'])->name('upload.picture');
